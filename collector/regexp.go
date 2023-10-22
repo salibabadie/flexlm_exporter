@@ -18,11 +18,11 @@ var (
 			`Total of (?P<used>\d+) \w+ in use\)$`)
 	lmutilLicenseFeatureUsageUserRegex = regexp.MustCompile(
 		`^\s+(?P<user>[\w[:print:]]+) [\w\-\.]+ [[:print:]]+ (?P<ver>\(v[\w\.]+\)) \([\w\-\.]+\/\d+ ` +
-			`\d+\)\, start \w+ \d+\/\d+ \d+\:\d+(\,\s(?P<licenses>\d+)\s\w+|)` +
+			`\d+\)\, start (?P<since>\w+ \d+\/\d+ \d+\:\d+)(\,\s(?P<licenses>\d+)\s\w+|)` +
 			`(\s+\(linger\:\s\d+\s\/\s\d+\))?$`)
 	lmutilLicenseFeatureUsageUser2Regex = regexp.MustCompile(
 		`^\s+(?P<user>[\w[:print:]]+) [\w\-\.]+ (?P<ver>\(v[\w\.]+\)) \([\w\-\.]+\/\d+ ` +
-			`\d+\)\, start \w+ \d+\/\d+ \d+\:\d+(\,\s(?P<licenses>\d+)\s\w+|)` +
+			`\d+\)\, start (?P<since>\w+ \d+\/\d+ \d+\:\d+)(\,\s(?P<licenses>\d+)\s\w+|)` +
 			`(\s+\(linger\:\s\d+\s\/\s\d+\))?$`)
 	lmutilLicenseFeatureGroupReservRegex = regexp.MustCompile(
 		`^(\s+|)(?P<reservation>\d+)\s+\w+\s+for\s+(HOST_GROUP|GROUP)\s+` +
@@ -36,4 +36,6 @@ var (
 	lmutilLicenseFeatureExpRegex2 = regexp.MustCompile(
 		`^(?P<feature>[[:graph:]]+)\s+(?P<version>[\d\.]+)\s+` +
 			`(?P<licenses>\d+)\s+(?P<vendor>\w+)\s+(?P<expires>[\w\-\s\(\)]+)$`)
+	lmutilTimeRegex = regexp.MustCompile(
+		`^\w+ (?P<month>\d+)/(?P<day>\d+) (?P<time>\d+:\d+)$`)
 )

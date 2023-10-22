@@ -1,3 +1,8 @@
+## v0.0.9 / 2023-09-04
+
+ * [ENHANCEMENT] Add GitHub Container Registry.
+ * [ENHANCEMENT] Add since label to "flexlm_feature_used_users". Thanks @stefankaufmann.
+
 ## v0.0.8 / 2022-08-16
 
  * [ENHANCEMENT] Compile for darwin-arm64 and darwin-amd64.

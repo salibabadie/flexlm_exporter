@@ -29,6 +29,7 @@ import (
 	"github.com/prometheus/common/promlog"
 	"github.com/prometheus/common/promlog/flag"
 
+	kingpin "github.com/alecthomas/kingpin/v2"
 	"github.com/go-kit/log"
 	"github.com/go-kit/log/level"
 	"github.com/mjtrangoni/flexlm_exporter/collector"
@@ -39,7 +40,6 @@ import (
 	"github.com/prometheus/common/version"
 	"github.com/prometheus/exporter-toolkit/web"
 	"github.com/prometheus/exporter-toolkit/web/kingpinflag"
-	kingpin "gopkg.in/alecthomas/kingpin.v2"
 )
 
 const (
@@ -206,9 +206,9 @@ func main() {
 	http.Handle(*metricsPath, newHandler(!*disableExporterMetrics, *configPath, *maxRequests, logger))
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte(`<html>
-			<head><title>Node Exporter</title></head>
+			<head><title>FLEXlm Exporter</title></head>
 			<body>
-			<h1>Node Exporter</h1>
+			<h1>FLEXlm Exporter</h1>
 			<p><a href="` + *metricsPath + `">Metrics</a></p>
 			</body>
 			</html>`))
